@@ -1,0 +1,76 @@
+# Building this package requires a minimal set of package to be installed:
+# Version of glibc
+# glibc for target architecture is required to build and for further usage.
+GLIBC_VER=2.38-2
+# Version of linux+api
+LINUXAPI_VER=6.7.12-0
+# Version of aosc-aaa
+AOSCAAA_VER=11.4.2-0
+# Version of libxcrypt
+LIBXCRYPT_VER=4.4.36-2
+# Version of gcc
+GCC_VER=13.2.0
+# Target architecture - this variable is used during build process
+
+VER=${GCC_VER}+glibc${GLIBC_VER/-/+}
+REL=1
+SRCS="tbl::https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VER}/gcc-${GCC_VER}.tar.xz \
+      file::rename=glibc_amd64.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_amd64.deb \
+      file::rename=linux+api_amd64.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_amd64.deb \
+      file::rename=aosc-aaa_amd64.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_amd64.deb \
+      file::rename=libxcrypt_amd64.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_amd64.deb \
+      file::rename=glibc_arm64.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_arm64.deb \
+      file::rename=linux+api_arm64.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_arm64.deb \
+      file::rename=aosc-aaa_arm64.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_arm64.deb \
+      file::rename=libxcrypt_arm64.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_arm64.deb \
+      file::rename=glibc_loongarch64.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_loongarch64.deb \
+      file::rename=linux+api_loongarch64.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_loongarch64.deb \
+      file::rename=aosc-aaa_loongarch64.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_loongarch64.deb \
+      file::rename=libxcrypt_loongarch64.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_loongarch64.deb \
+      file::rename=glibc_loongson3.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_loongson3.deb \
+      file::rename=linux+api_loongson3.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_loongson3.deb \
+      file::rename=aosc-aaa_loongson3.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_loongson3.deb \
+      file::rename=libxcrypt_loongson3.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_loongson3.deb \
+      file::rename=glibc_mips64r6el.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_mips64r6el.deb \
+      file::rename=linux+api_mips64r6el.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_mips64r6el.deb \
+      file::rename=aosc-aaa_mips64r6el.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_mips64r6el.deb \
+      file::rename=libxcrypt_mips64r6el.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_mips64r6el.deb \
+      file::rename=glibc_ppc64el.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_ppc64el.deb \
+      file::rename=linux+api_ppc64el.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_ppc64el.deb \
+      file::rename=aosc-aaa_ppc64el.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_ppc64el.deb \
+      file::rename=libxcrypt_ppc64el.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_ppc64el.deb \
+      file::rename=glibc_riscv64.deb::https://repo.aosc.io/debs/pool/stable/main/g/glibc_${GLIBC_VER}_riscv64.deb \
+      file::rename=linux+api_riscv64.deb::https://repo.aosc.io/debs/pool/stable/main/l/linux+api_${LINUXAPI_VER}_riscv64.deb \
+      file::rename=aosc-aaa_riscv64.deb::https://repo.aosc.io/debs/pool/stable/main/a/aosc-aaa_${AOSCAAA_VER}_riscv64.deb \
+      file::rename=libxcrypt_riscv64.deb::https://repo.aosc.io/debs/pool/stable/main/libx/libxcrypt_${LIBXCRYPT_VER}_riscv64.deb"
+CHKSUMS="sha256::e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da \
+         sha256::377f9b4b6724e0f229e31b9bb688f11991f07d83fc44e11f844b2d5a98df37b7 \
+         sha256::7109fa592dc5216bd108ca12915933443eb09eada575b11ce2c97372c2388710 \
+         sha256::98a289816ca8d8c6da8483071de39d572110cd278a9e0d4bbc7aeb8f9fd74ff7 \
+         sha256::8677f64698a357bcab0b163e8fee3f3c64aded7d20146295c0c177304e45b651 \
+         sha256::d6a3807c326c3d3bee284111b01b16540b6d0944fc793e7035a3ca5441a56044 \
+         sha256::c258b14d4c88e2220e05dd5768eda94eebf34bcc3f000e3573bbd7e0545b2ac9 \
+         sha256::7ec426a114b9bc57b7c85a169cf419345df2d2ab4adec23a28951642ba572407 \
+         sha256::c37597d7ab7490ba8098fee5eae17b5445e23444c31b9d10b08a20de7885987a \
+         sha256::ce92c56b7f197fac258e79e59b80feedfe3813e095b09fd3467b104448c9305d \
+         sha256::ff977ed0d5b18ab3ba3e384b464a0220ed5a138efa2ef682158dc48698e56613 \
+         sha256::f2722ad7bbb506499710c7bdff5e0f3d3cc28175453d5847b3e5f6234bc22d6b \
+         sha256::7912a6e3fc3e195277347d78eed92f4ef144a3b30bbd3f1fd9c63338d57f2c0f \
+         sha256::32cf1844dac8704a6e65bb06ef001d903f09a2b17b77ed3c32e6d3c469827800 \
+         sha256::454096c89dfee5f8b3be374db0aa03d7ee887ca8ea01a46273b6a8dcfa3c89e7 \
+         sha256::900e487deab908d153a40f44f64c4663540038fdc0a231e489acb684520cccf8 \
+         sha256::acc6e502d8eede83e0823e0eff6ef251054f6aa22458dd0c364a235806356054 \
+         sha256::2f7e3780ebd191e8b4291b1b641632da667301a2736c4bcde7ff16f581c3a5eb \
+         sha256::b984ad181834a89d3d57bb9554522b8f72dd2efdb751988d1daf7e212a2d25c0 \
+         sha256::631f95ad3f9bff74230742276c93d9624d271c5ec986912dfa2c13ef5c64438a \
+         sha256::be078a0ff06048345b4616252c1f028522fe6dd97f1ca2696cdc60e8bb7111cd \
+         sha256::267246fc5b24935d67630be87f07467724c7d42372c841af6dd88716fbd63690 \
+         sha256::8a66a11c26067253d5dec61dc0cc5939369131f3bb29061915ae194a90b02b83 \
+         sha256::91edc027a3732ecd4c6198f1591ad244ae3cf9384cfaf1647d7249066d00920e \
+         sha256::142b911cc07237c38449e876ec3cb8f7b2457ba09ec20f0c122b31a6da0a5e4c \
+         sha256::3d98b43f7575a7167f5f2c5fc627af4b94dcda7111b8fec3bf185ea70ec596b6 \
+         sha256::ed268c1b3d9c1965d2aac25d7ea7526ffdd52e2c13aafdeb9a396da78d0cc707 \
+         sha256::c29389c8ca76e301077e705bad8d045f6470202096520012ca55f69e4216adc5 \
+         sha256::45f00259d30fa67ac358556c20ab776027fd97c625ac8d633206a0d5c634bdaf"
+CHKUPDATE="anitya::id=6502"
+SUBDIR="gcc-${GCC_VER}"

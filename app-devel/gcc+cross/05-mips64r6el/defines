@@ -1,0 +1,17 @@
+PKGNAME=gcc+cross-mips64r6el
+PKGSEC=devel
+PKGDEP="binutils+cross-mips64r6el"
+
+__CROSS="mips64r6el"
+FAIL_ARCH="${__CROSS}"
+
+PKGDES="GNU Compiler Collection (cross compiler for MIPS 64-bit Release 6 GNU/Linux targets)"
+
+NOSTATIC=0
+
+# Note: Sync from core-devel/gcc.
+TARGET_OPTIONS="""
+    --with-arch=mips64r6
+    --with-tune=mips64r6
+    --with-compact-branches=always
+"""
