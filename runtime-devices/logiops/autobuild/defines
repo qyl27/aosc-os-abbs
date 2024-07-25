@@ -1,0 +1,6 @@
+PKGNAME=logiops
+PKGDES="A unofficial userspace driver for Logitech HID++ devices"
+PKGDEP="systemd libevdev glib libconfig"
+PKGSEC=libs
+
+ABTYPE=cmakeninja
