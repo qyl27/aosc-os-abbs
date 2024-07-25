@@ -1,0 +1,5 @@
+PKGNAME=gnucash
+PKGDES="A personal and small business double entry accounting application"
+PKGDEP="python-3 mariadb sqlite postgresql  gtk-3 webkit2gtk icu libtool libxml2 libxslt libxslt texinfo libsecret libofx aqbanking gwenhywfar boost libdbi goffice guile swig gtest "
+PKGSEC="utils"
+ABTYPE=cmakeninja

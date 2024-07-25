@@ -1,0 +1,4 @@
+VER=5.8
+SRCS="git::commit=tags/$VER::https://github.com/Gnucash/gnucash/"
+CHKSUMS="SKIP"
+CHKUPDATE="anitya::id=1205"
