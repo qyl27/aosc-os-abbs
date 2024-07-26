@@ -1,8 +1,10 @@
 VER=4.9.0
-REL=2
+REL=3
 SRCS="git::commit=tags/$VER::https://github.com/opencv/opencv \
       git::commit=tags/$VER;rename=opencv_contrib::https://github.com/opencv/opencv_contrib"
 CHKSUMS="SKIP \
          SKIP"
 SUBDIR="opencv"
 CHKUPDATE="anitya::id=6615"
+
+ENVREQ__MIPS64R6EL="total_mem=60"
